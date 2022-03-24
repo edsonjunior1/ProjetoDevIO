@@ -11,6 +11,8 @@ import { ContatoComponent } from './institucional/contato/contato.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
 import { APP_BASE_HREF } from '@angular/common';
+import { DataPropertyComponent } from './demos/data-property/data-property.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,8 +22,9 @@ import { APP_BASE_HREF } from '@angular/common';
     FooterComponent,
     SobreComponent,
     ContatoComponent,
+    DataPropertyComponent,
   ],
-  imports: [BrowserModule, FontAwesomeModule, [RouterModule.forRoot(routes)]],
+  imports: [BrowserModule, FontAwesomeModule, [RouterModule.forRoot(routes)], FormsModule],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent],
 })
