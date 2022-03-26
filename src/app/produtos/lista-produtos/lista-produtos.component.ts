@@ -1,3 +1,4 @@
+import { IProdutos } from './../../models/produtos.model';
 import { ProdutosService } from './../../services/produtos.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-produtos.component.css'],
 })
 export class ListaProdutosComponent implements OnInit {
-  constructor(private produto: ProdutosService) {}
+  public produtos: IProdutos[] = [];
 
-  ngOnInit(): void {}
+  constructor(private produtoService: ProdutosService) {}
+
+  ngOnInit(): void {
+    this.obterProdutos();
+  }
+
+  obterProdutos() {
+    this.produtoService.getProdutos().subscribe({
+      next: (produtos) => {
+        this.produtos = produtos;
+        console.log(produtos);
+      },
+      error: (erro) => console.log(erro),
+    });
+  }
 }

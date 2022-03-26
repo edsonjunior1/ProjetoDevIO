@@ -2,6 +2,9 @@ import { ProdutosService } from './services/produtos.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MenuComponent } from './navegacao/menu/menu.component';
@@ -17,6 +20,7 @@ import { DataPropertyComponent } from './demos/data-property/data-property.compo
 import { FormsModule } from '@angular/forms';
 import { ListaProdutosComponent } from './produtos/lista-produtos/lista-produtos.component';
 
+registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
